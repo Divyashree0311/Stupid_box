@@ -23,9 +23,12 @@ function startLevel() {
   livesText.innerText = lives;
   levelText.innerText = level;
   streakText.innerText = streak;
-  hintText.innerText = `Level ${level}: Choose carefully`;
 
-  // 🔑 RESPONSIVE GRID COLUMNS
+  hintText.innerText =
+    level <= 4
+      ? `Level ${level}: Choose carefully`
+      : `Level ${level}: Chaos Mode 😈`;
+
   grid.style.gridTemplateColumns = `repeat(${gridSize}, minmax(50px, 1fr))`;
 
   const totalBoxes = gridSize * gridSize;
@@ -96,9 +99,17 @@ function revealSafe() {
   boxes[safeBox].innerText = "💰";
 }
 
+/* 🔑 LEVEL LOGIC YOU ASKED FOR */
 function nextLevel() {
   level++;
-  gridSize++;
+
+  if (level <= 4) {
+    gridSize++; // 3→4→5→6
+  } else {
+    const sizes = [4, 5, 6];
+    gridSize = sizes[Math.floor(Math.random() * sizes.length)];
+  }
+
   startLevel();
 }
 

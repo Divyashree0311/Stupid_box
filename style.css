@@ -20,7 +20,6 @@ h1 {
   justify-content: center;
   gap: 20px;
   margin-bottom: 10px;
-  font-size: 16px;
 }
 
 #hint {
@@ -30,7 +29,7 @@ h1 {
   min-height: 24px;
 }
 
-/* 🔑 RESPONSIVE GRID */
+/* Responsive grid */
 .grid {
   display: grid;
   gap: 12px;
@@ -40,10 +39,10 @@ h1 {
   justify-content: center;
 }
 
-/* 🔑 RESPONSIVE BOX */
+/* Responsive square boxes */
 .box {
   width: 100%;
-  aspect-ratio: 1 / 1; /* keeps squares */
+  aspect-ratio: 1 / 1;
   background: #444;
   border-radius: 10px;
   display: flex;
@@ -81,12 +80,11 @@ button:hover {
   background: orange;
 }
 
-/* 📱 MOBILE OPTIMIZATION */
+/* Mobile tweaks */
 @media (max-width: 600px) {
   .grid {
     max-width: 90%;
   }
-
   .box {
     font-size: 22px;
   }
