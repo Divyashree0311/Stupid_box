@@ -9,7 +9,7 @@ const winSound = document.getElementById("winSound");
 const loseSound = document.getElementById("loseSound");
 
 let level = 1;
-let gridSize = 3;
+let gridSize = 3; // starts at 3x3
 let lives = 3;
 let streak = 0;
 let safeBox;
@@ -25,9 +25,9 @@ function startLevel() {
   streakText.innerText = streak;
 
   hintText.innerText =
-    level <= 4
+    level <= 3
       ? `Level ${level}: Choose carefully`
-      : `Level ${level}: Chaos Mode 😈`;
+      : `Level ${level}: Master Mode 🔥`;
 
   grid.style.gridTemplateColumns = `repeat(${gridSize}, minmax(50px, 1fr))`;
 
@@ -38,7 +38,6 @@ function startLevel() {
     const box = document.createElement("div");
     box.className = "box";
     box.innerText = "❓";
-
     box.addEventListener("click", () => handleClick(i, box));
     grid.appendChild(box);
   }
@@ -99,16 +98,13 @@ function revealSafe() {
   boxes[safeBox].innerText = "💰";
 }
 
-/* 🔑 LEVEL LOGIC YOU ASKED FOR */
+/* 🔒 GRID SIZE CAPPED AT LEVEL 3 */
 function nextLevel() {
   level++;
 
-  if (level <= 4) {
-    gridSize++; // 3→4→5→6
-  } else {
-    const sizes = [4, 5, 6];
-    gridSize = sizes[Math.floor(Math.random() * sizes.length)];
-  }
+  if (level === 2) gridSize = 4;
+  else if (level === 3) gridSize = 5;
+  else gridSize = 5; // 🔒 NEVER increase beyond 5x5
 
   startLevel();
 }
