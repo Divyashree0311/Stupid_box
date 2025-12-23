@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find the Safe Box</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>🔐 Find the Safe Box</h1>
+
+  <div class="stats">
+    <span>Level: <b id="level">1</b></span>
+    <span>Attempts: <b id="lives">3</b></span>
+    <span>Streak 🔥: <b id="streak">0</b></span>
+  </div>
+
+  <p id="hint">Level 1: Choose carefully</p>
+
+  <div class="grid" id="grid"></div>
+
+  <button onclick="restartGame()">Restart Game</button>
+
+  <!-- Sounds -->
+  <audio id="clickSound" src="click.mp3"></audio>
+  <audio id="winSound" src="win.mp3"></audio>
+  <audio id="loseSound" src="lose.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
